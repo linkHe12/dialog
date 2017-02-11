@@ -1,0 +1,8 @@
+<div class="dialog dialog-2" data-controls="dialog" data-index="{{=it.dialogIndex}}" data-type="{{=it.type}}">
+    {{?it.icon == 1 }}
+    <span class="wlicon wlicon-circle-success"></span>
+    {{??it.icon == 2}}
+    <span class="wlicon wlicon-circle-fail"></span>
+    {{?}}
+    <p class="msg">{{=it.content}}</p>
+</div>

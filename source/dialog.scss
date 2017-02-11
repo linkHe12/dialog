@@ -1,0 +1,150 @@
+// variables
+$brand-primary: #337ab7;
+$dialogClassPrefix: ""; // class前缀
+
+// mixins
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    // IE8 filter
+    $opacity-ie: ($opacity * 100);
+    filter: alpha(opacity=$opacity-ie);
+}
+
+// dialog
+.#{$dialogClassPrefix}dialog {
+    position: fixed;
+    background: #fff;
+    width: 800px;
+
+    > .#{$dialogClassPrefix}dialog-heading {
+        position: relative;
+        padding: 30px 0;
+        background: $brand-primary;
+        text-align: center;
+
+        > .#{$dialogClassPrefix}dialog-title {
+            color: #fff;
+            font-size: 28px;
+        }
+
+        .closebtn {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    }
+
+    > .#{$dialogClassPrefix}dialog-body {
+        > .#{$dialogClassPrefix}dialog-content {
+            margin-bottom: 30px;
+        }
+
+        > .#{$dialogClassPrefix}dialog-icon {
+            position: relative;
+            margin-bottom: 20px;
+            top: 1px;
+            display: inline-block;
+            font-family: 'Glyphicons Halflings';
+            font-style: normal;
+            font-weight: 400;
+            line-height: 1;
+            text-align: center;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+
+            // success
+            > .#{$dialogClassPrefix}dialog-icon-1 {
+                &:before {
+                    content: "\e013";
+                }
+            }
+            // fail
+            > .#{$dialogClassPrefix}dialog-icon-2 {
+                &:before {
+                    content: "\e014";
+                }
+            }
+        }
+
+        > iframe {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        .btns {
+            text-align: center;
+            word-spacing: 10px;
+        }
+    }
+
+    // 信息框
+    &.#{$dialogClassPrefix}dialog-0 {
+        > .#{$dialogClassPrefix}dialog-body {
+            padding: 50px 15px;
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+        }
+    }
+    // iframe框
+    &.#{$dialogClassPrefix}dialog-1 {
+        > .#{$dialogClassPrefix}dialog-body {
+            &.loading {
+                &:before {
+                    content: '正在加载...';
+                }
+            }
+        }
+    }
+    // toast框
+    &.#{$dialogClassPrefix}dialog-2 {
+        width: auto;
+        background: #666;
+        color: #fff;
+        padding: 10px 15px;
+        background: rgba(76, 94, 112, 0.8);
+        border-radius: 6px;
+        text-align: center;
+
+        .msg {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wlicon {
+            font-size: 26px;
+        }
+    }
+    // load层
+    &.#{$dialogClassPrefix}dialog-3 {
+        padding: 10px 50px;
+        width: auto;
+        border-radius: 6px;
+        background: transparent;
+        text-align: center;
+
+        img {
+            display: block;
+            margin: 0 auto 5px;
+        }
+        .msg {
+            margin: 0;
+            font-size: 20px;
+        }
+    }
+}
+
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 99999;
+    @include opacity(0.3);
+}

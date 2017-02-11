@@ -1,0 +1,18 @@
+{
+    "root": true,
+    "extends": "eslint:recommended",
+    "env": {
+        "browser": true,
+        "jquery": true,
+        "amd": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 5
+    },
+    "globals": {},
+    "rules": {
+        "no-eval": 2,
+        "strict": 2,
+        "indent": ["error", 4]
+    }
+}

@@ -1,0 +1,28 @@
+<div class="dialog dialog-{{=it.type}}" data-controls="dialog" data-index="{{=it.dialogIndex}}"
+     data-type="{{=it.type}}">
+    <header class="dialog-heading" data-query="heading">
+        <span class="dialog-title">{{=it.title}}</span>
+        {{?it.closeBtn>0}}
+        <span class="glyphicon glyphicon-remove closebtn" data-action="close"></span>
+        {{?}}
+    </header>
+    <div class="dialog-body" data-query="body">
+        {{?it.type == 0}}
+        <div class="dialog-content">{{=it.content}}</div>
+        {{?}}
+
+        {{?it.icon}}
+        <div class="dialog-icon">
+            <span class="dialog-icon-{{=it.icon}}"></span>
+        </div>
+        {{?}}
+
+        {{? it.buttons}}
+        <div class="btns" data-action="buttons">
+            {{~it.buttons:item}}
+            {{=item}}
+            {{~}}
+        </div>
+        {{?}}
+    </div>
+</div>

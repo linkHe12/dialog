@@ -1,0 +1,6 @@
+<div class="dialog dialog-3" data-controls="dialog" data-index="{{=it.dialogIndex}}" data-type="{{=it.type}}">
+    <img src="/img/newadmin/common/loading-50.gif" alt="load">
+    {{?it.content}}
+    <p class="msg">{{=it.content}}</p>
+    {{?}}
+</div>
